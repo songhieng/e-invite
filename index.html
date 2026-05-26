@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Amelia &amp; Julien — Save the Date</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Italiana&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Cardo:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500&family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    /* defaults — overwritten by Tweaks */
+    --bg:        #f7f1e8;
+    --bg-deep:   #efe6d6;
+    --ink:       #2e1a24;
+    --ink-soft:  #4a2f3a;
+    --muted:     #8a7367;
+    --accent:    #a88858;
+    --accent-2:  #c9a87a;
+    --rule:      rgba(46, 26, 36, 0.18);
+    --rule-soft: rgba(46, 26, 36, 0.08);
+    --font-display: 'Cormorant Garamond', serif;
+    --font-script:  'Italiana', serif;
+    --font-body:    'Cormorant Garamond', serif;
+    --font-label:   'Cormorant Garamond', serif;
+  }
+
+  * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,255,255,.4), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, var(--bg-deep), transparent 70%),
+      var(--bg);
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  /* very subtle paper grain */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: .06;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  ::selection { background: var(--ink); color: var(--bg); }
+
+  /* — type — */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+  }
+  .script {
+    font-family: var(--font-script);
+    font-weight: 400;
+    font-style: normal;
+  }
+  .label {
+    font-family: var(--font-label);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .rule {
+    height: 1px;
+    background: var(--rule);
+    border: 0;
+  }
+  .hairline {
+    width: 60px;
+    height: 1px;
+    background: var(--ink);
+    display: inline-block;
+    vertical-align: middle;
+    opacity: .5;
+  }
+
+  /* root scroller */
+  #root { position: relative; z-index: 2; }
+
+  /* base section */
+  section.s {
+    padding: 140px 8vw;
+    position: relative;
+  }
+  @media (max-width: 720px) {
+    section.s { padding: 90px 6vw; }
+  }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="sections.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
